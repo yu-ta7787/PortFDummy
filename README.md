@@ -20,6 +20,7 @@
 ![ランダム抽選](random_short-ezgif.com-video-to-gif-converter.gif)
 ・ランダムで積みゲーを表示
 
+
 ![Shift+Dで削除](deleteShiftD-ezgif.com-video-to-gif-converter.gif)
 <p>・Shift + D で削除</p>
 
