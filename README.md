@@ -15,15 +15,14 @@ Steam ライブラリを “飾って楽しむ” ＋ “積みゲー可視化�
 ・セキュリティ対策　　　　　　GitHubにはAPIキーを含まないダミーデータ版を公開
 
 実行画面
-所有ゲームを本棚にドラッグ＆ドロップで飾り付け
-
-Shift + 左クリックで Showcase 追加
-
-Shift + D で削除
-
-JSONファイルでレイアウトを保存
-
+・所有ゲームを本棚にドラッグ＆ドロップで飾り付け
+・Shift + 左クリックで Showcase 追加
+・Shift + D で削除
+・JSONファイルでレイアウトを保存
 (実行動画・GIFあり)
+![ランダム抽選](random_short-ezgif.com-video-to-gif-converter.gif)
+![Shift+Dで削除](deleteShiftD-ezgif.com-video-to-gif-converter.gif)
+![印刷テスト](print-ezgif.com-video-to-gif-converter.gif)
 
 使用技術
 言語　　　C# (.NET 8)
