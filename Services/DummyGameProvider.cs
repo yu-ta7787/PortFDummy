@@ -6,7 +6,7 @@
 
     public class DummyGameProvider : IGameProvider
     {
-        public List<Game> LoadGames() => new()
+        public List<Game> LoadGames() => new()// ダミーのゲームデータを返す
 {
     new Game{ AppId=2246340, Name="MONSTER HUNTER WILDS", PlaytimeMinutes=5, LastPlayed=null },
     new Game{ AppId=582010, Name="MONSTER HUNTER: WORLD", PlaytimeMinutes=3420, LastPlayed=DateTime.Today.AddDays(-1) },

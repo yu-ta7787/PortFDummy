@@ -258,9 +258,9 @@ namespace PortFDummy
             return closest;
         }
 
-        private void RerollRandom_Click(object sender, RoutedEventArgs e) => FillTopCards();
+        private void RerollRandom_Click(object sender, RoutedEventArgs e) => FillTopCards();// ランダムカードの再抽選
 
-      
+
         private void SaveShowcase()  // --- Showcase の保存/復元（AppIdのみJSON保存） ---
         {
             try
