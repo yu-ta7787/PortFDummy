@@ -16,12 +16,16 @@
 
 <h3>実行画面</h3>
 (実行動画・GIFあり)
+
 ![ランダム抽選](random_short-ezgif.com-video-to-gif-converter.gif)
-<p>・ランダムで積みゲーを表示</p>
+・ランダムで積みゲーを表示
+
 ![Shift+Dで削除](deleteShiftD-ezgif.com-video-to-gif-converter.gif)
 <p>・Shift + D で削除</p>
+
 ![印刷テスト](print-ezgif.com-video-to-gif-converter.gif)
 <p>・所有ゲームを本棚にドラッグ＆ドロップで飾り付け</p> 
+
 ![メイン画面](https://github.com/yu-ta7787/PortFDummy/blob/main/スクリーンショット%202025-10-06%20202613.png)
 <p>・メイン画面</p> 
 
