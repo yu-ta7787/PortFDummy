@@ -17,12 +17,17 @@ Steam ライブラリを “飾って楽しむ” ＋ “積みゲー可視化�
 実行画面
 (実行動画・GIFあり)
 ![ランダム抽選](random_short-ezgif.com-video-to-gif-converter.gif)
+
 ・ランダムで積みゲーを表示
 ![Shift+Dで削除](deleteShiftD-ezgif.com-video-to-gif-converter.gif)
+
 ・Shift + D で削除
 ![印刷テスト](print-ezgif.com-video-to-gif-converter.gif)
+
 ・所有ゲームを本棚にドラッグ＆ドロップで飾り付け
+
 ![メイン画面](https://github.com/yu-ta7787/PortFDummy/blob/main/スクリーンショット%202025-10-06%20202613.png)
+
 ・メイン画面
 
 ##  使用技術
