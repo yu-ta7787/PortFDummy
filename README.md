@@ -15,21 +15,26 @@ Steam ライブラリを “飾って楽しむ” ＋ “積みゲー可視化�
 ・セキュリティ対策　　　　　　GitHubにはAPIキーを含まないダミーデータ版を公開
 
 実行画面
-・所有ゲームを本棚にドラッグ＆ドロップで飾り付け
-・Shift + 左クリックで Showcase 追加
-・Shift + D で削除
-・JSONファイルでレイアウトを保存
 (実行動画・GIFあり)
 ![ランダム抽選](random_short-ezgif.com-video-to-gif-converter.gif)
+・ランダムで積みゲーを表示
 ![Shift+Dで削除](deleteShiftD-ezgif.com-video-to-gif-converter.gif)
+・Shift + D で削除
 ![印刷テスト](print-ezgif.com-video-to-gif-converter.gif)
+・所有ゲームを本棚にドラッグ＆ドロップで飾り付け
 ![メイン画面](https://github.com/yu-ta7787/PortFDummy/blob/main/スクリーンショット%202025-10-06%20202613.png)
-使用技術
-言語　　　C# (.NET 8)
-フレームワーク　WPF
-データ管理　　JSON ローカル保存
-API　　Steam Web API（※ダミー版を公開）
-バージョン管理　　Git / GitHub
+・メイン画面
+
+##  使用技術
+
+| カテゴリ | 使用技術 |
+|-----------|-----------|
+| 言語 | C# (.NET 8) |
+| フレームワーク | WPF |
+| データ管理 | JSON ローカル保存 |
+| API | Steam Web API（※ダミー版を公開） |
+| バージョン管理 | Git / GitHub |
+
 
 📁 フォルダ構成（抜粋）
 GameSteemSh /
