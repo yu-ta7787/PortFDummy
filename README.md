@@ -23,7 +23,7 @@ Steam ライブラリを “飾って楽しむ” ＋ “積みゲー可視化�
 ![ランダム抽選](random_short-ezgif.com-video-to-gif-converter.gif)
 ![Shift+Dで削除](deleteShiftD-ezgif.com-video-to-gif-converter.gif)
 ![印刷テスト](print-ezgif.com-video-to-gif-converter.gif)
-
+![メイン画面](https://github.com/yu-ta7787/PortFDummy/blob/main/スクリーンショット%202025-10-06%20202613.png)
 使用技術
 言語　　　C# (.NET 8)
 フレームワーク　WPF
