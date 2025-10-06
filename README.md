@@ -43,16 +43,17 @@ Steam ライブラリを “飾って楽しむ” ＋ “積みゲー可視化�
 
 📁 フォルダ構成（抜粋）
 GameSteemSh /
-┣ Effects/
-┃ ┗ StarField.cs
-┣ Models/
-┃ ┣ Game.cs
-┃ ┗ Secrets.cs
-┣ Services/
-┃ ┣ IGameProvider.cs
-┃ ┗ DummyGameProvider.cs
-┣ MainWindow.xaml(.cs)
-┗ App.xaml
+ ┣ Effects/
+ ┃ ┗ StarField.cs
+ ┣ Models/
+ ┃ ┣ Game.cs
+ ┃ ┗ Secrets.cs
+ ┣ Services/
+ ┃ ┣ IGameProvider.cs
+ ┃ ┗ DummyGameProvider.cs
+ ┣ MainWindow.xaml(.cs)
+ ┗ App.xaml
+
 ＊構成は随時変更の可能性あり
 
  今後の改善・Vision
