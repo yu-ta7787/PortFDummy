@@ -1,0 +1,283 @@
+﻿<Window x:Class="PortFDummy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PortFDummy"
+        Height="1200" Width="1300"
+        MinHeight="1000" MinWidth="1100"
+        WindowStartupLocation="CenterScreen">
+
+    <!-- 影リソース（カード用） -->
+    <Window.Resources>
+        <DropShadowEffect x:Key="cardShadow"
+                          Color="#000000" BlurRadius="12"
+                          ShadowDepth="3" Opacity="0.35"/>
+    </Window.Resources>
+
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#000000" Offset="0"/>
+            <!-- 上：黒 -->
+            <GradientStop Color="#001F4D" Offset="0.25"/>
+            <!-- 青 -->
+            <GradientStop Color="#000000" Offset="0.55"/>
+            <!-- 黒 -->
+            <GradientStop Color="#001F4D" Offset="0.75"/>
+            <!-- 細めの青 -->
+            <GradientStop Color="#FFFF66" Offset="0.85"/>
+            <!-- 細い黄色アクセント -->
+            <GradientStop Color="#000000" Offset="1"/>
+            <!-- 下：黒 -->
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- 上段カード -->
+            <RowDefinition Height="260"/>
+            <!-- 自由に見せ棚（Showcase） -->
+            <RowDefinition Height="320"/>
+            <!-- 全コレクション -->
+            <RowDefinition Height="*"/>
+            <!-- 積みゲー帯 -->
+        </Grid.RowDefinitions>
+
+        <!-- 上段：4カード + 右上引き直しランダム -->
+        <Grid Grid.Row="0" Margin="0,0,0,8" Panel.ZIndex="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- 操作列 -->
+                <RowDefinition Height="Auto"/>
+                <!-- カード列 -->
+            </Grid.RowDefinitions>
+
+            <!-- ヘッダー行（右寄せボタンのみ） -->
+            <DockPanel Grid.Row="0" LastChildFill="False" Margin="0,0,0,10">
+                <Button x:Name="RerollButton" Content="🎲 引き直し"
+                        DockPanel.Dock="Right"
+                        Width="120" Height="40" Padding="8,4"
+                        Margin="0,0,6,0"
+                        Click="RerollRandom_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#66FFFFFF"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="BorderBrush" Value="#99FFFFFF"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                CornerRadius="10" Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#88FFFFFF"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#AAFFFFFF"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </DockPanel>
+
+            <!-- 4枚固定配置 -->
+            <UniformGrid Grid.Row="1" Columns="4" Margin="0,0,0,6">
+                <!-- 昨日プレイ -->
+                <Border Width="220" Height="140" CornerRadius="16"
+                        Background="#2B2B2B" BorderBrush="#444" BorderThickness="2"
+                        Margin="0,0,16,0" Effect="{DynamicResource cardShadow}">
+                    <Grid ClipToBounds="True">
+                        <Image x:Name="YesterdayImage" Stretch="UniformToFill" />
+                        <Border Background="#88000000" VerticalAlignment="Bottom" Height="36"/>
+                        <TextBlock x:Name="YesterdayText" Foreground="White" FontSize="16"
+                                   TextAlignment="Center" TextWrapping="Wrap"
+                                   VerticalAlignment="Bottom" Margin="8,0,8,6">
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="0" Opacity="0.7"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </Grid>
+                </Border>
+
+                <!-- 総プレイ1位 -->
+                <Border Width="220" Height="140" CornerRadius="16"
+                        Background="#2B2B2B" BorderBrush="#444" BorderThickness="2"
+                        Margin="0,0,16,0" Effect="{DynamicResource cardShadow}">
+                    <Grid ClipToBounds="True">
+                        <Image x:Name="Top1Image" Stretch="UniformToFill" Opacity="0.95"/>
+                        <Border Background="#88000000" VerticalAlignment="Bottom" Height="36"/>
+                        <TextBlock x:Name="Top1Text" Foreground="#EEE" FontSize="16"
+                                   TextAlignment="Center" TextWrapping="Wrap"
+                                   VerticalAlignment="Bottom" Margin="8,0,8,6"/>
+                    </Grid>
+                </Border>
+
+                <!-- ランダム① -->
+                <Border Width="220" Height="140" CornerRadius="16"
+                        Background="#2B2B2B" BorderBrush="#444" BorderThickness="2"
+                        Margin="0,0,16,0" Effect="{DynamicResource cardShadow}">
+                    <Grid ClipToBounds="True">
+                        <Image x:Name="Random1Image" Stretch="UniformToFill" Opacity="0.95"/>
+                        <Border Background="#88000000" VerticalAlignment="Bottom" Height="36"/>
+                        <TextBlock x:Name="Random1Text" Foreground="#EEE" FontSize="16"
+                                   TextAlignment="Center" TextWrapping="Wrap"
+                                   VerticalAlignment="Bottom" Margin="8,0,8,6"/>
+                    </Grid>
+                </Border>
+
+                <!-- ランダム② -->
+                <Border Width="220" Height="140" CornerRadius="16"
+                        Background="#2B2B2B" BorderBrush="#444" BorderThickness="2"
+                        Effect="{DynamicResource cardShadow}">
+                    <Grid ClipToBounds="True">
+                        <Image x:Name="Random2Image" Stretch="UniformToFill" Opacity="0.95"/>
+                        <Border Background="#88000000" VerticalAlignment="Bottom" Height="36"/>
+                        <TextBlock x:Name="Random2Text" Foreground="#EEE" FontSize="16"
+                                   TextAlignment="Center" TextWrapping="Wrap"
+                                   VerticalAlignment="Bottom" Margin="8,0,8,6"/>
+                    </Grid>
+                </Border>
+            </UniformGrid>
+        </Grid>
+
+        <!--  中段：自由に見せ棚（Showcase） Shift+Click で追加 / Shift+D で削除 / D&D もOK -->
+        <Border Grid.Row="1" Margin="0,24" CornerRadius="20"
+                Background="#232323" BorderBrush="#555" BorderThickness="2" Panel.ZIndex="1">
+            <StackPanel Margin="12">
+                <TextBlock Text="自由に飾る本棚（下の全コレクション：Shift＋左クリックで追加／Shift＋Dで削除／ドラッグ＆ドロップでも追加）"
+                           Foreground="#AAA" Margin="0,0,0,8"/>
+                <ListBox x:Name="ShowcaseList"
+                         AllowDrop="True"
+                         Background="Transparent" BorderThickness="0"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         DragOver="ShowcaseList_DragOver"
+                         Drop="ShowcaseList_Drop"
+                         PreviewKeyDown="ShowcaseList_PreviewKeyDown"
+                         SelectionMode="Single">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Margin" Value="0"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Focusable" Value="True"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <ContentPresenter/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="180" Height="110" Margin="8" CornerRadius="10"
+                                    Background="#303030" SnapsToDevicePixels="True"
+                                    PreviewMouseLeftButtonDown="ShowcaseItem_PreviewMouseLeftButtonDown"
+                                    PreviewMouseMove="ShowcaseItem_PreviewMouseMove">
+                                <Grid ClipToBounds="True">
+                                    <Image Source="{Binding HeaderImageUrl}" Stretch="UniformToFill"/>
+                                    <Border Background="#80000000" VerticalAlignment="Bottom" Height="26"/>
+                                    <TextBlock Text="{Binding Name}" Foreground="White"
+                                               Margin="6,0,6,4" VerticalAlignment="Bottom"
+                                               TextTrimming="CharacterEllipsis"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Border>
+
+        <!-- 下：全コレクション  -->
+        <Border Grid.Row="2" Margin="0,24,0,0" CornerRadius="12"
+                Background="#262626" BorderBrush="#444" BorderThickness="2" Panel.ZIndex="1">
+            <StackPanel Margin="12">
+                <TextBlock Text="全コレクション（Shift＋左クリック＝Showcaseへ追加／通常クリック＝ストアを開く）"
+                           Foreground="#DDD" Margin="0,0,0,8"/>
+                <ItemsControl x:Name="AllList">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Click="OpenStore_Click" Tag="{Binding}"
+                                    Padding="0" Background="Transparent" BorderThickness="0"
+                                    PreviewMouseLeftButtonDown="AllItem_PreviewMouseLeftButtonDown"
+                                    PreviewMouseMove="AllItem_PreviewMouseMove">
+                                <Border Width="180" Height="110" Margin="8" CornerRadius="10"
+                                        Background="#303030" SnapsToDevicePixels="True" Cursor="Hand">
+                                    <Grid ClipToBounds="True">
+                                        <Image Source="{Binding HeaderImageUrl}" Stretch="UniformToFill"/>
+                                        <Border Background="#88000000" VerticalAlignment="Bottom" Height="26"/>
+                                        <TextBlock Text="{Binding Name}" Foreground="White"
+                                                   FontSize="12" Margin="6,0,6,4"
+                                                   VerticalAlignment="Bottom" TextTrimming="CharacterEllipsis"/>
+                                    </Grid>
+                                </Border>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
+
+        <!--  最下段：積みゲー帯  -->
+        <Border Grid.Row="3" Margin="0,24,0,0" CornerRadius="12"
+                Background="#262626" BorderBrush="#444" BorderThickness="2" Panel.ZIndex="1">
+            <StackPanel Margin="12">
+                <TextBlock Text="積みゲー（プレイ時間120分未満）" Foreground="#DDD" Margin="0,0,0,8"/>
+                <ItemsControl x:Name="ShelfList">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Click="OpenStore_Click" Tag="{Binding AppId}"
+                                    Padding="0" Background="Transparent" BorderThickness="0">
+                                <Border Width="180" Height="110" Margin="8" CornerRadius="10"
+                                        Background="#303030" SnapsToDevicePixels="True">
+                                    <Grid ClipToBounds="True">
+                                        <Image Source="{Binding HeaderImageUrl}" Stretch="UniformToFill"/>
+                                        <Border Background="#88000000" VerticalAlignment="Bottom" Height="26"/>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="6,0,6,4">
+                                            <TextBlock Text="{Binding Name}" Foreground="White"
+                                                       FontSize="12" TextTrimming="CharacterEllipsis"/>
+                                            <TextBlock Text="{Binding PlaytimeMinutes, StringFormat=' ({0}m)'}"
+                                                       Foreground="#CCC" FontSize="11" Margin="4,0,0,0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>
