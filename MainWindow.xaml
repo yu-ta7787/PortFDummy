@@ -210,74 +210,116 @@
         <!-- 下：全コレクション  -->
         <Border Grid.Row="2" Margin="0,24,0,0" CornerRadius="12"
                 Background="#262626" BorderBrush="#444" BorderThickness="2" Panel.ZIndex="1">
-            <StackPanel Margin="12">
-                <TextBlock Text="全コレクション（Shift＋左クリック＝Showcaseへ追加／通常クリック＝ストアを開く）"
-                           Foreground="#DDD" Margin="0,0,0,8"/>
-                <ItemsControl x:Name="AllList">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
+            <Grid Margin="12">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <!-- ★ここが伸びる領域（縦スクロールの器） -->
+                </Grid.RowDefinitions>
 
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button Click="OpenStore_Click" Tag="{Binding}"
-                                    Padding="0" Background="Transparent" BorderThickness="0"
-                                    PreviewMouseLeftButtonDown="AllItem_PreviewMouseLeftButtonDown"
-                                    PreviewMouseMove="AllItem_PreviewMouseMove">
-                                <Border Width="180" Height="110" Margin="8" CornerRadius="10"
-                                        Background="#303030" SnapsToDevicePixels="True" Cursor="Hand">
-                                    <Grid ClipToBounds="True">
-                                        <Image Source="{Binding HeaderImageUrl}" Stretch="UniformToFill"/>
-                                        <Border Background="#88000000" VerticalAlignment="Bottom" Height="26"/>
-                                        <TextBlock Text="{Binding Name}" Foreground="White"
-                                                   FontSize="12" Margin="6,0,6,4"
-                                                   VerticalAlignment="Bottom" TextTrimming="CharacterEllipsis"/>
-                                    </Grid>
-                                </Border>
-                            </Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
-        </Border>
+                <TextBlock Grid.Row="0"
+               Text="全コレクション（Shift＋左クリック＝Showcaseへ追加／通常クリック＝ストアを開く）"
+               Foreground="#DDD" Margin="0,0,0,8"/>
 
-        <!--  最下段：積みゲー帯  -->
-        <Border Grid.Row="3" Margin="0,24,0,0" CornerRadius="12"
-                Background="#262626" BorderBrush="#444" BorderThickness="2" Panel.ZIndex="1">
-            <StackPanel Margin="12">
-                <TextBlock Text="積みゲー（プレイ時間120分未満）" Foreground="#DDD" Margin="0,0,0,8"/>
-                <ItemsControl x:Name="ShelfList">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
+                <!-- 外側にScrollViewer、横スクロールは無効 -->
+                <ScrollViewer Grid.Row="1"
+                  VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled">
+                    <!-- ItemsControl → ListBox に変更（スクロールと仮想化の恩恵を受けやすい） -->
+                    <ListBox x:Name="AllList"
+               Background="Transparent" BorderThickness="0"
+               ScrollViewer.CanContentScroll="True"
+               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+               ScrollViewer.VerticalScrollBarVisibility="Auto"
+               SelectionMode="Single">
+                        <!-- 横並びで折り返し -->
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"
+                       ItemWidth="180" ItemHeight="110"/>
+                                <!-- カードサイズに合わせる -->
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
 
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button Click="OpenStore_Click" Tag="{Binding AppId}"
-                                    Padding="0" Background="Transparent" BorderThickness="0">
-                                <Border Width="180" Height="110" Margin="8" CornerRadius="10"
-                                        Background="#303030" SnapsToDevicePixels="True">
-                                    <Grid ClipToBounds="True">
-                                        <Image Source="{Binding HeaderImageUrl}" Stretch="UniformToFill"/>
-                                        <Border Background="#88000000" VerticalAlignment="Bottom" Height="26"/>
-                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="6,0,6,4">
+                        <!-- 既存のカードUIはそのまま流用 -->
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Button Click="OpenStore_Click" Tag="{Binding}"
+                    Padding="0" Background="Transparent" BorderThickness="0"
+                    PreviewMouseLeftButtonDown="AllItem_PreviewMouseLeftButtonDown"
+                    PreviewMouseMove="AllItem_PreviewMouseMove">
+                                    <Border Width="180" Height="110" Margin="8" CornerRadius="10"
+                      Background="#303030" SnapsToDevicePixels="True" Cursor="Hand">
+                                        <Grid ClipToBounds="True">
+                                            <Image Source="{Binding HeaderImageUrl}" Stretch="UniformToFill"/>
+                                            <Border Background="#88000000" VerticalAlignment="Bottom" Height="26"/>
                                             <TextBlock Text="{Binding Name}" Foreground="White"
-                                                       FontSize="12" TextTrimming="CharacterEllipsis"/>
-                                            <TextBlock Text="{Binding PlaytimeMinutes, StringFormat=' ({0}m)'}"
-                                                       Foreground="#CCC" FontSize="11" Margin="4,0,0,0"/>
-                                        </StackPanel>
-                                    </Grid>
-                                </Border>
-                            </Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
+                             FontSize="12" Margin="6,0,6,4"
+                             VerticalAlignment="Bottom" TextTrimming="CharacterEllipsis"/>
+                                        </Grid>
+                                    </Border>
+                                </Button>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </Grid>
         </Border>
+
+        <Border Grid.Row="3" Margin="0,24,0,0" CornerRadius="12"
+        Background="#262626" BorderBrush="#444" BorderThickness="2" Panel.ZIndex="1">
+            <Grid Margin="12">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <!-- ★ スクロール領域 -->
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+               Text="積みゲー（プレイ時間120分未満）"
+               Foreground="#DDD" Margin="0,0,0,8"/>
+
+                <ScrollViewer Grid.Row="1"
+                  VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled">
+                    <!-- ItemsControl → ListBox に変更 -->
+                    <ListBox x:Name="ShelfList"
+               Background="Transparent" BorderThickness="0"
+               ScrollViewer.CanContentScroll="True"
+               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+               ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"
+                       ItemWidth="180" ItemHeight="110"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Button Click="OpenStore_Click" Tag="{Binding AppId}"
+                    Padding="0" Background="Transparent" BorderThickness="0">
+                                    <Border Width="180" Height="110" Margin="8" CornerRadius="10"
+                      Background="#303030" SnapsToDevicePixels="True">
+                                        <Grid ClipToBounds="True">
+                                            <Image Source="{Binding HeaderImageUrl}" Stretch="UniformToFill"/>
+                                            <Border Background="#88000000" VerticalAlignment="Bottom" Height="26"/>
+                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="6,0,6,4">
+                                                <TextBlock Text="{Binding Name}" Foreground="White"
+                               FontSize="12" TextTrimming="CharacterEllipsis"/>
+                                                <TextBlock Text="{Binding PlaytimeMinutes, StringFormat=' ({0}m)'}"
+                               Foreground="#CCC" FontSize="11" Margin="4,0,0,0"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </Button>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
 
     </Grid>
 </Window>

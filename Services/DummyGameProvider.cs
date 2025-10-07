@@ -19,10 +19,8 @@
     new Game{ AppId=524220, Name="NieR:Automata™", PlaytimeMinutes=300, LastPlayed=DateTime.Today.AddDays(-10) },
     new Game{ AppId=1174180, Name="Red Dead Redemption 2", PlaytimeMinutes=2400, LastPlayed=DateTime.Today.AddDays(-5) },
     new Game{ AppId=582010,  Name="MONSTER HUNTER: WORLD",      PlaytimeMinutes=3420, LastPlayed=DateTime.Today.AddDays(-1) },
-    new Game{ AppId=1172470, Name="APEX LEGENDS",               PlaytimeMinutes=1800, LastPlayed=DateTime.Today.AddDays(-10) },
-    new Game{ AppId=39210,   Name="FINAL FANTASY XIV",          PlaytimeMinutes=950,  LastPlayed=DateTime.Today.AddDays(-20) },
+    new Game{ AppId=1172470, Name="APEX LEGENDS",               PlaytimeMinutes=1800, LastPlayed=DateTime.Today.AddDays(-10) }, 
     new Game{ AppId=1245620, Name="ELDEN RING",                 PlaytimeMinutes=870,  LastPlayed=DateTime.Today.AddDays(-7) },
-    new Game{ AppId=814380,  Name="SEKIRO: SHADOWS DIE TWICE",  PlaytimeMinutes=600,  LastPlayed=DateTime.Today.AddDays(-15) },
     new Game{ AppId=648800,  Name="RAFT",                       PlaytimeMinutes=30,   LastPlayed=null },
     new Game{ AppId=367520,  Name="HOLLOW KNIGHT",              PlaytimeMinutes=45,   LastPlayed=null },
     new Game{ AppId=646570,  Name="SLAY THE SPIRE",             PlaytimeMinutes=90,   LastPlayed=null },
@@ -46,7 +44,12 @@
     new Game{ AppId=504230, Name="Celeste", PlaytimeMinutes=45, LastPlayed=null },
     new Game{ AppId=1057090, Name="Ori and the Will of the Wisps", PlaytimeMinutes=60, LastPlayed=null },
     new Game{ AppId=1145360, Name="Hades", PlaytimeMinutes=90, LastPlayed=null },
-    new Game{ AppId=739630, Name="Phasmophobia", PlaytimeMinutes=30, LastPlayed=null },
+     new Game{ AppId=1325200, Name="超美麗RPG 天穂のサクナヒメ",     PlaytimeMinutes=60,  LastPlayed=null },
+     new Game{ AppId=1113000, Name="AI: ソムニウムファイル",           PlaytimeMinutes=90,  LastPlayed=null },
+     new Game{ AppId=1528790, Name="零 ～濡鴉ノ巫女～",                 PlaytimeMinutes=75,  LastPlayed=null },
+     new Game{ AppId=2002600, Name="ロックマンエグゼ アドバンスドコレクション", PlaytimeMinutes=45,  LastPlayed=null },
+     new Game{ AppId=834530,  Name="龍が如く 極",                        PlaytimeMinutes=110, LastPlayed=null },
+
 };
 
 
