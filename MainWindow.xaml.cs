@@ -1,4 +1,4 @@
-﻿using PortFDummy.Models; // ← ここをプロジェクト名に合わせて
+﻿using PortFDummy.Models; 
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Diagnostics;
@@ -134,7 +134,7 @@ namespace PortFDummy
                     btn.DataContext as Game ??
                     (btn.Tag is int idOnly ? _games.FirstOrDefault(x => x.AppId == idOnly) : null);
 
-                // Shift+クリックでShowcaseに追加
+                // Shift+クリックでShowcaseに追加　（Shiftを押さなくても動く）改良が必須
                 if ((Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift && game != null)
                 {
                     if (!_showcase.Any(g => g.AppId == game.AppId))
