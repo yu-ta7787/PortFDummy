@@ -44,11 +44,11 @@
     new Game{ AppId=504230, Name="Celeste", PlaytimeMinutes=45, LastPlayed=null },
     new Game{ AppId=1057090, Name="Ori and the Will of the Wisps", PlaytimeMinutes=60, LastPlayed=null },
     new Game{ AppId=1145360, Name="Hades", PlaytimeMinutes=90, LastPlayed=null },
-     new Game{ AppId=1325200, Name="超美麗RPG 天穂のサクナヒメ",     PlaytimeMinutes=60,  LastPlayed=null },
-     new Game{ AppId=1113000, Name="AI: ソムニウムファイル",           PlaytimeMinutes=90,  LastPlayed=null },
-     new Game{ AppId=1528790, Name="零 ～濡鴉ノ巫女～",                 PlaytimeMinutes=75,  LastPlayed=null },
-     new Game{ AppId=2002600, Name="ロックマンエグゼ アドバンスドコレクション", PlaytimeMinutes=45,  LastPlayed=null },
-     new Game{ AppId=834530,  Name="龍が如く 極",                        PlaytimeMinutes=110, LastPlayed=null },
+    new Game{ AppId=1325200, Name="超美麗RPG 天穂のサクナヒメ",     PlaytimeMinutes=60,  LastPlayed=null },
+    new Game{ AppId=1113000, Name="AI: ソムニウムファイル",           PlaytimeMinutes=90,  LastPlayed=null },
+    new Game{ AppId=1528790, Name="零 ～濡鴉ノ巫女～",                 PlaytimeMinutes=75,  LastPlayed=null },
+    new Game{ AppId=2002600, Name="ロックマンエグゼ アドバンスドコレクション", PlaytimeMinutes=45,  LastPlayed=null },
+    new Game{ AppId=834530,  Name="龍が如く 極",                        PlaytimeMinutes=110, LastPlayed=null },
 
 };
 

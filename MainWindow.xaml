@@ -52,7 +52,15 @@
             </Grid.RowDefinitions>
 
             <!-- ヘッダー行（右寄せボタンのみ） -->
-            <DockPanel Grid.Row="0" LastChildFill="False" Margin="0,0,0,10">
+            <DockPanel Grid.Row="0" LastChildFill="False" Margin="0,0,0,10"
+                       Panel.ZIndex="10">
+
+                <Button Content="🏆 トロフィールーム"
+                        Width="150" Height="35"
+                        HorizontalAlignment="Right"
+                        Margin="0,10,10,0"
+                        Click="OpenTrophyWindow_Click"/>
+
                 <Button x:Name="RerollButton" Content="🎲 引き直し"
                         DockPanel.Dock="Right"
                         Width="120" Height="40" Padding="8,4"
