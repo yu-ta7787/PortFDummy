@@ -63,7 +63,8 @@ GameSteemSh /
  ┃ ┗ DummyGameProvider.cs
  ┣ MainWindow.xaml(.cs)
  ┗ App.xaml
-
+  TrophyWindow、
+　┗TrophyWindow.xaml.cs
 ＊構成は随時変更の可能性あり
 
  <h3>今後の改善・Vision</h3>
@@ -75,7 +76,7 @@ GameSteemSh /
 ・ユーザー同士のコミュニティ要素
 ・「積みゲーを積み上げて落とす」ミニゲーム構想
 
-<h3>## 💪 学習スキル自己評価</h3>
+<h3> 💪 学習スキル自己評価</h3>
 
 | スキル | レベル | 備考 |
 |:--------|:--------|:--------|
